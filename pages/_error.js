@@ -10,7 +10,7 @@ function Error({ statusCode }) {
       ) : (
         <h1 className={styles.Error_Message}>An error occurred</h1>
       )}
-      <Link href="/" className={styles.Error_Link} legacyBehavior>
+      <Link href="/" className={styles.Error_Link}>
         Back to the home page
       </Link>
     </div>

@@ -26,18 +26,16 @@ export function Header({ app }: { app: AppMeta }): JSX.Element {
   return (
     <header className={styles.Header}>
       <div className={styles.Header_Inner}>
-        <Link href="/" legacyBehavior>
-          <a href="#" className={styles.Title}>
-            {app.icon?.type === 'emoji' && (
-              <span className={styles.Title_Icon}>{app.icon.value}</span>
-            )}
-            {app.icon?.type === 'image' && (
-              <span className={styles.Title_Icon}>
-                <img src={app.icon.value} alt="" />
-              </span>
-            )}
-            <div className={styles.Title_Text}>{app.name || app.uid || ''}</div>
-          </a>
+        <Link className={styles.Title} href="/">
+          {app.icon?.type === 'emoji' && (
+            <span className={styles.Title_Icon}>{app.icon.value}</span>
+          )}
+          {app.icon?.type === 'image' && (
+            <span className={styles.Title_Icon}>
+              <img src={app.icon.value} alt="" />
+            </span>
+          )}
+          <div className={styles.Title_Text}>{app.name || app.uid || ''}</div>
         </Link>
         <div className={styles.Link}>
           <a

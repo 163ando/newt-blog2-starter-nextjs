@@ -139,9 +139,7 @@ export default function ArticlePage({
             <ul className={styles.Article_Tags}>
               {currentArticle.tags.map((tag) => (
                 <li key={tag._id}>
-                  <Link href={`/tag/${tag.slug}`} legacyBehavior>
-                    <a>#{tag.name}</a>
-                  </Link>
+                  <Link href={`/tag/${tag.slug}`}>#{tag.name}</Link>
                 </li>
               ))}
             </ul>
@@ -170,10 +168,10 @@ export default function ArticlePage({
                 </a>
                 <div className={styles.Article_AuthorData}>
                   <Link
+                    className={styles.Article_AuthorName}
                     href={`/author/${currentArticle.author.slug}`}
-                    legacyBehavior
                   >
-                    <a className={styles.Article_AuthorName}>{authorName}</a>
+                    {authorName}
                   </Link>
                   <time dateTime={publishDate} className={styles.Article_Date}>
                     {publishDate}
@@ -272,10 +270,10 @@ export default function ArticlePage({
             </a>
             <div className={styles.Author_Text}>
               <Link
+                className={styles.Article_AuthorName}
                 href={`/author/${currentArticle.author.slug}`}
-                legacyBehavior
               >
-                <a className={styles.Article_AuthorName}>{authorName}</a>
+                {authorName}
               </Link>
               <div
                 className={styles.Author_Description}
@@ -285,42 +283,44 @@ export default function ArticlePage({
           </aside>
           <nav className={styles.Links}>
             {prevArticle && (
-              <Link href={`/article/${prevArticle.slug}`} legacyBehavior>
-                <a className={styles.Links_Previous}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="24px"
-                    viewBox="0 0 24 24"
-                    width="24px"
-                    fill="#333333"
-                  >
-                    <path d="M0 0h24v24H0V0z" fill="none" opacity=".87" />
-                    <path d="M17.51 3.87L15.73 2.1 5.84 12l9.9 9.9 1.77-1.77L9.38 12l8.13-8.13z" />
-                  </svg>
-                  Previous post
-                </a>
+              <Link
+                className={styles.Links_Previous}
+                href={`/article/${prevArticle.slug}`}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 0 24 24"
+                  width="24px"
+                  fill="#333333"
+                >
+                  <path d="M0 0h24v24H0V0z" fill="none" opacity=".87" />
+                  <path d="M17.51 3.87L15.73 2.1 5.84 12l9.9 9.9 1.77-1.77L9.38 12l8.13-8.13z" />
+                </svg>
+                Previous post
               </Link>
             )}
             {nextArticle && (
-              <Link href={`/article/${nextArticle.slug}`} legacyBehavior>
-                <a className={styles.Links_Next}>
-                  Next post
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    enableBackground="new 0 0 24 24"
-                    height="24px"
-                    viewBox="0 0 24 24"
-                    width="24px"
-                    fill="#333333"
-                  >
-                    <g>
-                      <path d="M0,0h24v24H0V0z" fill="none" />
-                    </g>
-                    <g>
-                      <polygon points="6.23,20.23 8,22 18,12 8,2 6.23,3.77 14.46,12" />
-                    </g>
-                  </svg>
-                </a>
+              <Link
+                className={styles.Links_Next}
+                href={`/article/${nextArticle.slug}`}
+              >
+                Next post
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  enableBackground="new 0 0 24 24"
+                  height="24px"
+                  viewBox="0 0 24 24"
+                  width="24px"
+                  fill="#333333"
+                >
+                  <g>
+                    <path d="M0,0h24v24H0V0z" fill="none" />
+                  </g>
+                  <g>
+                    <polygon points="6.23,20.23 8,22 18,12 8,2 6.23,3.77 14.46,12" />
+                  </g>
+                </svg>
               </Link>
             )}
           </nav>
