@@ -31,7 +31,7 @@ export function Pagination({
       <ul className={styles.Pagination_Items}>
         {pages.map((page) => (
           <li key={page.number} className={styles.Pagination_Item}>
-            <Link href={`${basePath}/page/${page.number}`}>
+            <Link href={`${basePath}/page/${page.number}`} legacyBehavior>
               <a
                 type="button"
                 className={`${styles.Pagination_Button} ${

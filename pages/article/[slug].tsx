@@ -139,7 +139,7 @@ export default function ArticlePage({
             <ul className={styles.Article_Tags}>
               {currentArticle.tags.map((tag) => (
                 <li key={tag._id}>
-                  <Link href={`/tag/${tag.slug}`}>
+                  <Link href={`/tag/${tag.slug}`} legacyBehavior>
                     <a>#{tag.name}</a>
                   </Link>
                 </li>
@@ -169,7 +169,10 @@ export default function ArticlePage({
                   )}
                 </a>
                 <div className={styles.Article_AuthorData}>
-                  <Link href={`/author/${currentArticle.author.slug}`}>
+                  <Link
+                    href={`/author/${currentArticle.author.slug}`}
+                    legacyBehavior
+                  >
                     <a className={styles.Article_AuthorName}>{authorName}</a>
                   </Link>
                   <time dateTime={publishDate} className={styles.Article_Date}>
@@ -268,7 +271,10 @@ export default function ArticlePage({
               )}
             </a>
             <div className={styles.Author_Text}>
-              <Link href={`/author/${currentArticle.author.slug}`}>
+              <Link
+                href={`/author/${currentArticle.author.slug}`}
+                legacyBehavior
+              >
                 <a className={styles.Article_AuthorName}>{authorName}</a>
               </Link>
               <div
@@ -279,7 +285,7 @@ export default function ArticlePage({
           </aside>
           <nav className={styles.Links}>
             {prevArticle && (
-              <Link href={`/article/${prevArticle.slug}`}>
+              <Link href={`/article/${prevArticle.slug}`} legacyBehavior>
                 <a className={styles.Links_Previous}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -296,7 +302,7 @@ export default function ArticlePage({
               </Link>
             )}
             {nextArticle && (
-              <Link href={`/article/${nextArticle.slug}`}>
+              <Link href={`/article/${nextArticle.slug}`} legacyBehavior>
                 <a className={styles.Links_Next}>
                   Next post
                   <svg
