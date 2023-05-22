@@ -130,11 +130,9 @@ export function Side({
                   {banner.bannerImage?.src ? (
                     <img
                       src={banner.bannerImage.src}
-                      alt={banner.bannerImage.name}
+                      alt=''
                       target={banner.bannerLinkTarget}
                     />
-                  ) : (
-                    </div>
                   )}
                 </a>
               </Link>
