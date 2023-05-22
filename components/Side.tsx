@@ -4,15 +4,18 @@ import styles from '../styles/Side.module.css'
 import Link from 'next/link'
 import { Author } from '../types/author'
 import { Archive } from '../types/article'
+import { Banner } from '../types/banner' 
 
 export function Side({
   popularTags,
   authors,
   archives,
+  banner,
 }: {
   popularTags: (Content & Tag & { total: number })[]
   authors: (Content & Author & { total: number })[]
   archives: Archive[]
+  banner: (Content & Author & { total: number })[]
 }) {
   return (
     <aside className={styles.Side}>
@@ -107,6 +110,30 @@ export function Side({
                         <path d="M0 0h24v24H0V0z" fill="none" />
                         <path d="M12 6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2m0 10c2.7 0 5.8 1.29 6 2H6c.23-.72 3.31-2 6-2m0-12C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 10c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
                       </svg>
+                    </div>
+                  )}
+                </a>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className={styles.Side_Row}>
+        <h3 className={styles.Side_Heading}>
+          Banner
+        </h3>
+        <ul className={styles.Writers}>
+          {banner.map((banner) => (
+            <li key={banner._id}>
+              <Link href={`${banner.bannerLinkUrl}`}>
+                <a>
+                  {banner.bannerImage?.src ? (
+                    <img
+                      src={banner.bannerImage.src}
+                      alt={banner.bannerImage.name}
+                      target={banner.bannerLinkTarget}
+                    />
+                  ) : (
                     </div>
                   )}
                 </a>
