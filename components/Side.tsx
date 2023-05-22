@@ -130,7 +130,7 @@ export function Side({
                   {banner.bannerImage?.src ? (
                     <img
                       src={banner.bannerImage.src}
-                      alt=''
+                      alt=``
                     />
                   )}
                 </a>
