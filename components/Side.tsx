@@ -131,7 +131,6 @@ export function Side({
                     <img
                       src={banner.bannerImage.src}
                       alt=''
-                      target={banner.bannerLinkTarget}
                     />
                   )}
                 </a>
